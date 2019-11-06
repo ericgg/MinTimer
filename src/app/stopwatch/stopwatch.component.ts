@@ -19,6 +19,10 @@ export class StopwatchComponent implements OnInit {
     }
   }
 
+  stopStopwatch(){
+    
+  }
+
   step(timestamp) {
     if (!this.currentlyRunning) return;
     this.time = timestamp;
