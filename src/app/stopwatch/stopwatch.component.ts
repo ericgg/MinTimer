@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class StopwatchComponent implements OnInit {
     currentlyRunning: boolean;
     time: number = 0;
-    times;
+    times;//: Array<number> = [0, 0, 0, 0];
     display;
 
   constructor() {  
@@ -30,7 +30,7 @@ export class StopwatchComponent implements OnInit {
   }
 
   resetStopwatch(){
-    this.times = 0;
+    this.times = [0, 0, 0, 0];
 
   }
 
@@ -55,8 +55,20 @@ export class StopwatchComponent implements OnInit {
   calculate(timestamp){
 
     var diff = timestamp - this.time;
-    this.times += diff / 10;
-     console.log("timestamp: " + timestamp + " this.times: " + this.times);
+    this.times[3] += diff / 10;
+
+    if (this.times[3] >= 100){
+      this.times[2] += 1;
+      this.times[3] -= 100;
+    }
+    if (this.times[2] >= 60){
+      this.times[1] += 1;
+      this.times[2] -= 60;
+    }
+    if (this.times[1] >= 60){
+      this.times[0] += 1;
+      this.times[1] -= 60;
+    }
   }
 
   ngOnInit() {

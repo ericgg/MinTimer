@@ -1,5 +1,5 @@
-<p>  Time: {{ times }}  </p>
+<p>  Time: {{ times[0] }} // {{ times[1] }} // {{ times[2]}} // {{ times[3] }}  </p>
 
-<button (click)="startStopwatch()" > Start </button>
-<button (click)="stopStopwatch()" > Stop </button>
-<button (click)="restartStopwatch()" > Restart </button>
+<ion-button color="primary" (click)="startStopwatch()" > Start </ion-button>
+<ion-button color="primary"  (click)="stopStopwatch()" > Stop </ion-button>
+<ion-button color="primary"  (click)="restartStopwatch()" > Restart </ion-button>
