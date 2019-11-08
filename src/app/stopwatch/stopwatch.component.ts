@@ -36,7 +36,7 @@ export class StopwatchComponent implements OnInit {
 
   stopStopwatch(){
     this.currentlyRunning = false;
-    this.times = null;
+    this.time = null;
   }
 
   restartStopwatch(){
