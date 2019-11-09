@@ -9,6 +9,7 @@ export class StopwatchComponent implements OnInit {
     currentlyRunning: boolean;
     time: number = 0;
     times;//: Array<number> = [0, 0, 0, 0];
+    miliseconds;
     display;
 
   constructor() {  
@@ -31,6 +32,7 @@ export class StopwatchComponent implements OnInit {
 
   resetStopwatch(){
     this.times = [0, 0, 0, 0];
+    this.miliseconds = "0";
 
   }
 
@@ -56,6 +58,7 @@ export class StopwatchComponent implements OnInit {
 
     var diff = timestamp - this.time;
     this.times[3] += diff / 10;
+    this.miliseconds = this.times[3].toString().substring(0,2);
 
     if (this.times[3] >= 100){
       this.times[2] += 1;
