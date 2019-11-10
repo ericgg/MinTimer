@@ -11,6 +11,7 @@ export class StopwatchComponent implements OnInit {
     times;//: Array<number> = [0, 0, 0, 0];
     miliseconds;
     display;
+    init;
 
   constructor() {  
     this.currentlyRunning = false;
@@ -32,6 +33,7 @@ export class StopwatchComponent implements OnInit {
 
   resetStopwatch(){
     this.times = [0, 0, 0, 0];
+    this.init = [false, false, false];
     this.miliseconds = "0";
 
   }
@@ -61,14 +63,17 @@ export class StopwatchComponent implements OnInit {
     this.miliseconds = this.times[3].toString().substring(0,2);
 
     if (this.times[3] >= 100){
+      this.init[2] = true;
       this.times[2] += 1;
       this.times[3] -= 100;
     }
     if (this.times[2] >= 60){
+      this.init[1] = true;
       this.times[1] += 1;
       this.times[2] -= 60;
     }
     if (this.times[1] >= 60){
+      this.init[0] = true;
       this.times[0] += 1;
       this.times[1] -= 60;
     }
