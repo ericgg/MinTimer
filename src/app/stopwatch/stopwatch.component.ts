@@ -60,7 +60,7 @@ export class StopwatchComponent implements OnInit {
 
     var diff = timestamp - this.time;
     this.times[3] += diff / 10;
-    this.miliseconds = this.times[3].toString().substring(0,2);
+    this.miliseconds = (this.times[3]*10).toString().substring(0,2);
 
     if (this.times[3] >= 100){
       this.init[2] = true;
