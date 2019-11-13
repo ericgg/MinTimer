@@ -1,5 +1,5 @@
 <h1> <ng-container *ngIf="init[0]"> {{ times[0] }}:</ng-container><ng-container *ngIf="init[1]">{{ times[1] }}:</ng-container>{{ times[2]}}<span id="fsiz">.{{ miliseconds }} </span></h1>
 
-<ion-button color="primary" (click)="startStopwatch()" > Start </ion-button>
-<ion-button color="primary"  (click)="stopStopwatch()" > Stop </ion-button>
+<ng-container *ngIf="!currentlyRunning"><ion-button color="primary" (click)="startStopwatch()" > Start </ion-button></ng-container>
+<ng-container *ngIf="currentlyRunning"><ion-button color="primary"  (click)="stopStopwatch()" > Stop </ion-button></ng-container>
 <ion-button color="primary"  (click)="restartStopwatch()" > Restart </ion-button>
